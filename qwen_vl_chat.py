@@ -69,6 +69,7 @@ class CCOT: #VIC gets question and image(list) as input
         self.question_file = question_file
 
 
+
     '''Async'''
     async def get_VLM_response(self, text_content:str, image_content:Optional[List[str]]=None, prompt:Optional[str]=None): #image need to be list or none/ prompt = system prompt
         if isinstance(prompt, str):#model_1

@@ -3,5 +3,5 @@
   <component name="Black">
     <option name="sdkName" value="Python 3.9 (LLaVA-NeXT)" />
   </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.9 (LLaVA-NeXT)" project-jdk-type="Python SDK" />
+  <component name="ProjectRootManager" version="2" project-jdk-name="qwen2_5_vl" project-jdk-type="Python SDK" />
 </project>

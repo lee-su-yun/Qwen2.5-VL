@@ -112,7 +112,6 @@ if __name__ == "__main__":
     model = Qwen2_5_VLForConditionalGeneration.from_pretrained(
         "Qwen/Qwen2.5-VL-7B-Instruct",
         torch_dtype=torch.bfloat16,
-        attn_implementation="flash_attention_2",
         device_map=device
     ).eval().to(device)
 

@@ -76,20 +76,13 @@ async def create_robot_plan_and_save(
     planner = RobotTaskPlanner(model, processor, device)
 
     system_prompt = (
-        "You are a robotics expert specializing in task decomposition for one-armed robots. "
-        "Given an overall task and several related images, your job is to carefully break down "
-        "the large task into a sequence of small, precise subtasks that a robot can directly execute. "
-        "Each subtask must: "
-        "- Be simple, clear, and specific enough for the robot to perform. "
-        "- Include concrete physical actions (e.g., 'Move the gripper above the tissue, open the gripper, lower it, and close to grasp the tissue'). "
-        "- Reflect the actual objects and layout visible in the images. "
-        "Additionally, for each subtask: "
-        "- Identify any potential unexpected issue based on the visual situation (e.g., 'Trash can not visible nearby', 'Tissue might be too small to grasp easily'). "
-        "- Suggest a practical solution to handle that issue (e.g., 'Place tissue on a nearby empty spot if trash can is missing'). "
-        "Use the following format clearly and consistently:\n\n"
-        "Subtask: <detailed action description>\n"
-        "Potential Issue: <what could go wrong>\n"
-        "Solution: <how to fix or handle it>\n"
+        "You are a robotics expert. Based on the provided images and task, "
+        "break down the task into small, executable subtasks for a one-armed robot. "
+        "For each subtask, identify potential unexpected issues and suggest practical solutions. "
+        "Use the following format clearly:\n\n"
+        "Subtask: <description>\n"
+        "Potential Issue: <issue>\n"
+        "Solution: <solution>\n"
     )
 
     # 1. Generate response
@@ -101,7 +94,7 @@ async def create_robot_plan_and_save(
     # 3. Assemble final output
     output = {
         "task": task,
-        "images_used": image_ids,
+        "images_used": image_paths,
         "subtasks": structured_subtasks
     }
 
@@ -126,13 +119,14 @@ if __name__ == "__main__":
 
     # Example input
     image_paths = [
-        "/home/sylee/codes/Qwen2.5-VL/images/desk1.jpg",
-        "/home/sylee/codes/Qwen2.5-VL/images/desk2.jpg",
-        "/home/sylee/codes/Qwen2.5-VL/images/desk3.jpg"
+        "/home/sylee/codes/Qwen2.5-VL/images/stack_cups1.jpg",
+        "/home/sylee/codes/Qwen2.5-VL/images/stack_cups2.jpg",
+        "/home/sylee/codes/Qwen2.5-VL/images/stack_cups3.jpg"
     ]
     image_ids = [1, 2, 3]  # or actual file names if you prefer
-    task = "Clean up the desk."
-    output_json_path = "/home/sylee/codes/Qwen2.5-VL/outputs/robot_task_plan.json"
+    task = "On the desk, stack the cups by nesting them in the following sequence: place the red cup first, then the blue cup inside it, and finally the purple cup on top." #"Clean up the desk."
+
+    output_json_path = "/home/sylee/codes/Qwen2.5-VL/outputs/stack_cups.json"
 
     loop = asyncio.get_event_loop()
     loop.run_until_complete(

@@ -121,13 +121,13 @@ if __name__ == "__main__":
     image_paths = [
         "/home/sylee/codes/Qwen2.5-VL/images/stack_cups1.jpg",
         "/home/sylee/codes/Qwen2.5-VL/images/stack_cups2.jpg"
-        #"/home/sylee/codes/Qwen2.5-VL/images/stack_cups3.jpg"
+        "/home/sylee/codes/Qwen2.5-VL/images/stack_cups3.jpg"
         #"/home/sylee/codes/Qwen2.5-VL/images/desk1.jpg",
         #"/home/sylee/codes/Qwen2.5-VL/images/desk2.jpg",
         #"/home/sylee/codes/Qwen2.5-VL/images/desk3.jpg"
     ]
     image_ids = [1, 2, 3]  # or actual file names if you prefer
-    task = "Stack the cups by placing the red first, blue inside, purple on top." #"Clean up the desk."
+    task = "Stack the cups on the desk by placing the red cup first, the blue cup inside it, and the purple cup on top, making sure the openings of all cups are facing upward." #"Clean up the desk."
 
     output_json_path = "/home/sylee/codes/Qwen2.5-VL/outputs/stack_cups.json"
 

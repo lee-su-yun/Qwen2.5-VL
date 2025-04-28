@@ -124,7 +124,7 @@ if __name__ == "__main__":
         "/home/sylee/codes/Qwen2.5-VL/images/stack_cups3.jpg"
     ]
     image_ids = [1, 2, 3]  # or actual file names if you prefer
-    task = "On the desk, stack the cups by nesting them in the following sequence: place the red cup first, then the blue cup inside it, and finally the purple cup on top." #"Clean up the desk."
+    task = "Stack the cups by placing the red first, blue inside, purple on top." #"Clean up the desk."
 
     output_json_path = "/home/sylee/codes/Qwen2.5-VL/outputs/stack_cups.json"
 

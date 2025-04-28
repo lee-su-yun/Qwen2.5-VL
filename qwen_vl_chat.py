@@ -125,7 +125,7 @@ if __name__ == "__main__":
     ]
     image_ids = [1, 2, 3]  # or actual file names if you prefer
     task = "Organize the desk by removing unnecessary items and placing books neatly."
-    output_json_path = "robot_task_plan.json"
+    output_json_path = "./outputs/robot_task_plan.json"
 
     loop = asyncio.get_event_loop()
     loop.run_until_complete(
